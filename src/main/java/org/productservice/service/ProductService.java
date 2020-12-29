@@ -17,6 +17,7 @@ public class ProductService {
 	private List<Product> products=new ArrayList<Product>();
 	
 	public List<Product> getAllProducts(){
+		products.clear();
 		productRepository.findAll().forEach(p->products.add(p));
 		return products;
 	}

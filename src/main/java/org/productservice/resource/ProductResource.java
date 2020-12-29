@@ -24,7 +24,7 @@ public class ProductResource {
 	public ResponseEntity<Product> getProduct(@PathVariable("productId") String productId) {		
 		Product product=productService.getProductById(productId);
 		if(null==product) {
-			return ResponseEntity.badRequest().body(null);
+			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok(product);
 	}
@@ -42,7 +42,5 @@ public class ProductResource {
 	@RequestMapping(value="/add", method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
 	public String addProduct(@RequestBody Product product) {
 		return productService.addProduct(product);
-	}
-	
-	
+	}	
 }
