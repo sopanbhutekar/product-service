@@ -1,11 +1,22 @@
 package org.productservice.object;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table
 public class Product {
 
+	@Id
+	@Column
 	private String productId;
+	@Column
 	private String name;
+	@Column
 	private String desc;
+	@Column
 	private int price;
 		
 	public int getPrice() {
@@ -46,7 +57,5 @@ public class Product {
 	}
 	public void setDesc(String desc) {
 		this.desc = desc;
-	}
-	
-	
+	}	
 }
