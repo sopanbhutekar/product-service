@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
+
 @RestController
 @RequestMapping("/product")
 public class ProductResource {
@@ -21,6 +25,8 @@ public class ProductResource {
 	private ProductService productService;
 	
 	@RequestMapping(value="/{productId}",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@ApiOperation(value="Get Product by Product Id", notes="Get Product by Product Id", response=Product.class)
+	@ApiResponses(value= {@ApiResponse(code=200, message="OK"), @ApiResponse(code=500, message="Internal Server Error")})
 	public ResponseEntity<Product> getProduct(@PathVariable("productId") String productId) {		
 		Product product=productService.getProductById(productId);
 		if(null==product) {
