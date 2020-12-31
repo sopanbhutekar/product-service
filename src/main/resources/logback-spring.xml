@@ -1,0 +1,35 @@
+<configuration>
+	<springProfile name="local">
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{MM/dd/yy HH:mm:ss.SSS} %-5level %method - %msg%n</pattern>
+                <charset>utf8</charset>
+            </encoder>
+        </appender>
+        <root level="DEBUG">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+        </springProfile>
+        <springProfile name="qa">
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{MM/dd/yy HH:mm:ss.SSS} %-5level %method - %msg%n</pattern>
+                <charset>utf8</charset>
+            </encoder>
+        </appender>
+        <root level="ERROR">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+        </springProfile>
+        <springProfile name="prod">
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{MM/dd/yy HH:mm:ss.SSS} %-5level %method - %msg%n</pattern>
+                <charset>utf8</charset>
+            </encoder>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+        </springProfile>
+</configuration>

@@ -54,5 +54,4 @@ public class ProductServiceIntegrationTest {
 		Product out=productService.getProductById(p.getProductId());
 		assertThat(p.getProductId().equals(out.getProductId()));
 	}
-	
 }
