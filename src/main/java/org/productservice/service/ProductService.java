@@ -17,7 +17,7 @@ public class ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 	private List<Product> products=new ArrayList<Product>();
-	Logger logger=LoggerFactory.getLogger(ProductService.class);
+	private Logger logger=LoggerFactory.getLogger(ProductService.class);
 	
 	public List<Product> getAllProducts(){
 		logger.info("Inside getAllProducts");
